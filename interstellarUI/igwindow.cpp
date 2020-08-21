@@ -22,8 +22,13 @@ IGWindow::IGWindow(QWidget *parent)
                                , {ui->selectS_1, ui->selectS_2, ui->selectS_3, ui->selectS_4, ui->selectS_5, ui->selectS_6, ui->selectS_7}
                                , {ui->selectL_1, ui->selectL_2, ui->selectL_3, ui->selectL_4, ui->selectL_5, ui->selectL_6, ui->selectL_7}};
 
+
     for (int i=0 ; i<4; i ++){
         memcpy(buttons[i], tmpButtons[i], sizeof(QPushButton *) * 7);
+        for (int j=0 ; j<7; j ++){
+            connect(buttons[i][j], SIGNAL (clicked()), this, SLOT (playButton(j)));
+
+        }
     }
 
     QLabel* tmpStoneList[7][7] = {{ui->p1_1, ui->p1_2, ui->p1_3, ui->p1_4, ui->p1_5, ui->p1_6, ui->p1_7},
@@ -88,6 +93,7 @@ void IGWindow::readStones(){
     for(int i = 0 ; i < 7 ; i++)
         for (int j = 0 ; j < 7 ; j++){
             if (stoneStatus[i][j] != 0){
+
                 updateStones(i, j, stoneStatus[i][j]);
             }
         }

@@ -6,6 +6,7 @@
 #include "QLabel"
 #include "ui_igwindow.h"
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class IGWindow; }
 QT_END_NAMESPACE
@@ -18,22 +19,20 @@ public:
     IGWindow(QWidget *parent = nullptr);
     void setStones();
     ~IGWindow();
-
-private slots:
-    static int stoneStatus[7][7];
-    static QLabel* stoneimgList[7][7];
-    static QPushButton* buttons[4][7];
-    static QPixmap btnImg[3];
+    int stoneStatus[7][7];
+    QLabel* stoneimgList[7][7];
+    QPushButton* buttons[4][7];
+    QPixmap btnImg[3];
     gravityD grav;
 
-    bool checkStones(gravityD gd, int sel);
     void updateStones(int x, int y, int team);
     void disableBtn();
     void playButton(int i);
     void readStones();
     bool putMyStone(int sel);
 
-    void on_pushButton_13_clicked();
+private slots:
+
 
     void on_select_1_clicked();
 
@@ -53,5 +52,7 @@ private slots:
 
 private:
     Ui::IGWindow *ui;
+
+
 };
 #endif // IGWINDOW_H
