@@ -20,6 +20,7 @@ SOURCES += \
     igwindow.cpp
 
 HEADERS += \
+    gravityD.h \
     igwindow.h
 
 FORMS += \
@@ -29,3 +30,8 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    icon/blue button.png \
+    icon/orange button.png \
+    icon/rectangle.png
