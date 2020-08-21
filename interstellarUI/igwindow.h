@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "gravityD.h"
 #include "QLabel"
+#include "ui_igwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class IGWindow; }
@@ -20,12 +21,17 @@ public:
 
 private slots:
     static int stoneStatus[7][7];
-    static QLabel stoneList[7][7];
+    static QLabel* stoneimgList[7][7];
+    static QPushButton* buttons[4][7];
     static QPixmap btnImg[3];
+    gravityD grav;
 
     bool checkStones(gravityD gd, int sel);
     void updateStones(int x, int y, int team);
-    void disableBtn(gravityD gd);
+    void disableBtn();
+    void playButton(int i);
+    void readStones();
+    bool putMyStone(int sel);
 
     void on_pushButton_13_clicked();
 

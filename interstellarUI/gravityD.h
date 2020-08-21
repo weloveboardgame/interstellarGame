@@ -5,6 +5,7 @@ enum class gravityD : int{
     EAST = 1,
     SOUTH = 2,
     WEST = 3
+
 };
 
 #endif // GRAVITYD_H
