@@ -25,14 +25,14 @@ public:
     QPixmap btnImg[3];
     gravityD grav;
 
+
+
+private slots:
     void updateStones(int x, int y, int team);
     void disableBtn();
     void playButton(int i);
     void readStones();
     bool putMyStone(int sel);
-
-private slots:
-
 
     void on_select_1_clicked();
 

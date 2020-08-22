@@ -14,8 +14,8 @@ IGWindow::IGWindow(QWidget *parent)
     }
 
     // mine == orange
-    btnImg[0].load("/icon/orangeButton.png");
-    btnImg[1].load("/icon/blueButton.png");
+    btnImg[0]= QPixmap("/icon/orangeButton.png");
+    btnImg[1]= QPixmap("/icon/blueButton.png");
 
     QPushButton* tmpButtons[4][7] = {{ui->selectW_1, ui->selectW_2, ui->selectW_3, ui->selectW_4, ui->selectW_5, ui->selectW_6, ui->selectW_7}
                                , {ui->selectR_1, ui->selectR_2, ui->selectR_3, ui->selectR_4, ui->selectR_5, ui->selectR_6, ui->selectR_13}
@@ -27,7 +27,7 @@ IGWindow::IGWindow(QWidget *parent)
         memcpy(buttons[i], tmpButtons[i], sizeof(QPushButton *) * 7);
         for (int j=0 ; j<7; j ++){
             connect(buttons[i][j], SIGNAL (clicked()), this, SLOT (playButton(j)));
-
+//            stoneimgList[i][j]->setPixmap(btnImg[0]);
         }
     }
 

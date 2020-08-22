@@ -131,9 +131,8 @@ void Game::showStones(){
 int Game::waitNextTurn(){
     char errbuf[PCAP_ERRBUF_SIZE];
     handle = pcap_open_live(dev, BUFSIZ, 1, 1000, errbuf);
-    
+    pcap_sendpacket(handle, );
     if (handle == nullptr) {
-        fprintf(stderr, "pcap_open_live(%s) return nullptr - %s\n", dev, errbuf);
         return -1;
     }
 
@@ -161,7 +160,6 @@ int Game::waitNextTurn(){
         ip = (ipv4_hdr *)(packet + ETHERNET_LENGTH);
         uint16_t ip_size = ip->ip_len;
         if (ip->ip_p != TCP_CHECK){
-            printf("This packet isn't TCP\n");
             continue;
         }
 
@@ -170,13 +168,7 @@ int Game::waitNextTurn(){
 
         payload = (u_char *)(packet + ETHERNET_LENGTH + IP_LENGTH + TCP_LENGTH);
         
-
-
-
-        print_ethernet(ethernet);
-        print_IP(ip);
-        print_TCP(tcp);
-        print_Payload(payload, ip);
+        
     }
 
 }
